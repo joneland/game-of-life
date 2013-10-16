@@ -9,5 +9,5 @@
 
 (deftest evolve-grid-to-next-representation
   (testing "representation of grid after evolve"
-    (is (= (evolve-grid [[:dead]] [[0]]) [[:live]]))
-    (is (= (evolve-grid [[:dead :dead][:dead :dead]] [[0][1]]) [[:live :dead][:dead :live]]))))
+    (is (= (evolve-grid [[0]]) [[:live]]))
+    (is (= (evolve-grid [[0][1]]) [[:live :dead][:dead :live]]))))
