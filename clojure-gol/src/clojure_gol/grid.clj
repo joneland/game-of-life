@@ -3,13 +3,5 @@
 (defn generate-grid [size]
   (repeat size (vec (repeat size :dead))))
 
-(defn set-index-to-live [grid row column]
-  (assoc grid row (assoc (grid row) column :live)))
-
 (defn evolve-grid [grid live-cells]
-  (loop [cells live-cells
-         evolved-grid grid]
-    (if (empty? cells)
-      evolved-grid
-      (recur (rest cells)
-             (set-index-to-live evolved-grid ((first cells) :row) ((first cells) :column))))))
+  (map (fn [row rows-live-cells] (reduce #(assoc %1 %2 :live) row rows-live-cells)) grid live-cells))
