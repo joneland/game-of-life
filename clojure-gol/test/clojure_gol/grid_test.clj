@@ -7,8 +7,8 @@
     (is (= (generate-grid 1) [[:dead]]))
     (is (= (generate-grid 2) [[:dead :dead] [:dead :dead]]))))
 
-(deftest set-cells-at-given-indexes-to-live
-  (testing "cells are updated to live at given indexes"
+(deftest cells-at-given-indexes-are-set-to-live
+  (testing "cells are set to live at given indexes"
     (is (= (set-live-cells [:dead] [0]) [:live]))
     (is (= (set-live-cells [:dead :dead] [1]) [:dead :live]))))
 
