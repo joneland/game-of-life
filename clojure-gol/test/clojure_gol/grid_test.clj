@@ -7,6 +7,11 @@
     (is (= (generate-grid 1) [[:dead]]))
     (is (= (generate-grid 2) [[:dead :dead] [:dead :dead]]))))
 
+(deftest set-cells-at-given-indexes-to-live
+  (testing "cells are updated to live at given indexes"
+    (is (= (set-live-cells [:dead] [0]) [:live]))
+    (is (= (set-live-cells [:dead :dead] [1]) [:dead :live]))))
+
 (deftest evolve-grid-to-next-representation
   (testing "representation of grid after evolve"
     (is (= (evolve-grid [[0]]) [[:live]]))
